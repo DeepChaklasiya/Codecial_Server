@@ -42,7 +42,7 @@ app.use(morgan('common'));
 
 // routes
 app.get('/', (req, res) => {
-  res.json('Welcome to home page');
+  res.send('Server is running');
 });
 
 const storage = multer.diskStorage({
@@ -68,10 +68,6 @@ app.use('/api/auth', authRoute);
 app.use('/api/posts', postRoute);
 app.use('/api/conversations', conversationsRoute);
 app.use('/api/messages', messagesRoute);
-
-app.get('/', (req, res) => {
-  res.send('Server is running');
-});
 
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
